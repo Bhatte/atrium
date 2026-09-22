@@ -1,17 +1,20 @@
 <%- include('../partials/head', { title: 'Documents' }) %>
 <%- include('../partials/nav', { active: 'resources', currentUser: currentUser }) %>
-<main>
-  <h1>Shared documents</h1>
-  <p class="subtitle">Kept by each department. Ask the owner if something looks out of date.</p>
+<main id="main-content" class="page-shell">
+  <section class="page-heading resource-heading">
+    <p class="eyebrow">Shared knowledge</p>
+    <h1>Documents</h1>
+    <div class="heading-row"><p class="hero-copy">Forms, registers and guides maintained by each department.</p><span class="record-count"><strong><%= resources.length %></strong> current records</span></div>
+  </section>
 
-  <div class="cards">
-    <% resources.forEach(function (item) { %>
-      <div class="card">
-        <div class="cat"><%= item.category %></div>
-        <h3><a href="/resources/<%= item.id %>"><%= item.title %></a></h3>
-        <p><%- item.description %></p>
-      </div>
+  <section class="resource-list" aria-label="Shared documents">
+    <% resources.forEach(function (item, index) { %>
+      <a class="resource-row" href="/resources/<%= item.id %>">
+        <span class="resource-number"><%= String(index + 1).padStart(2, '0') %></span>
+        <span class="resource-main"><span class="resource-category"><%= item.category %></span><strong><%= item.title %></strong><span class="resource-description"><%- item.description %></span></span>
+        <span class="resource-open">Open document <span aria-hidden="true">↗</span></span>
+      </a>
     <% }) %>
-  </div>
+  </section>
 </main>
 <%- include('../partials/foot') %>

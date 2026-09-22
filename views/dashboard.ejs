@@ -1,28 +1,48 @@
 <%- include('partials/head', { title: 'Home' }) %>
 <%- include('partials/nav', { active: 'dashboard', currentUser: currentUser }) %>
-<main>
-  <h1>Good to see you, <%= currentUser.display_name %></h1>
-  <p class="subtitle"><%= currentUser.department %> · <%= currentUser.email %></p>
+<main id="main-content" class="page-shell">
+  <section class="editorial-hero">
+    <div>
+      <p class="eyebrow">Your workspace</p>
+      <h1>Good work starts with shared context.</h1>
+      <p class="hero-copy">Welcome back, <%= currentUser.display_name %>. Atrium keeps the people, documents and everyday knowledge of your workplace close at hand.</p>
+    </div>
+    <aside class="identity-brief" aria-label="Signed-in account">
+      <span class="brief-number">01</span>
+      <strong><%= currentUser.department %></strong>
+      <span><%= currentUser.email %></span>
+      <p class="service-status"><span aria-hidden="true"></span>Workspace available</p>
+    </aside>
+  </section>
 
-  <div class="cards">
-    <div class="card">
-      <h3><a href="/directory">Staff directory</a></h3>
-      <p class="muted">Find a colleague, their department and how to reach them.</p>
-    </div>
-    <div class="card">
-      <h3><a href="/resources">Shared documents</a></h3>
-      <p class="muted">Forms, registers and guides kept by each department.</p>
-    </div>
-    <div class="card">
-      <h3><a href="/profile">My profile</a></h3>
-      <p class="muted">Keep your own details and short biography up to date.</p>
-    </div>
-  </div>
+  <section class="feature-grid" aria-label="Workspace areas">
+    <a class="feature-link" href="/directory">
+      <span class="feature-number">01</span>
+      <h2>Staff directory</h2>
+      <p>Find a colleague, understand their role and reach the right department.</p>
+      <span class="feature-action">Explore people <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="feature-link" href="/resources">
+      <span class="feature-number">02</span>
+      <h2>Shared documents</h2>
+      <p>Current forms, registers and guides kept by the people responsible.</p>
+      <span class="feature-action">Open resources <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="feature-link" href="/profile">
+      <span class="feature-number">03</span>
+      <h2>My profile</h2>
+      <p>Keep the information your colleagues rely on clear and current.</p>
+      <span class="feature-action">Review details <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
 
-  <h2>Notices</h2>
-  <div class="panel">
-    <p>Expense claims for this month close on the last working day. Contact Finance if you need an extension.</p>
-    <p class="muted">Posted by Morgan Doyle, IT Services</p>
-  </div>
+  <section class="briefing" aria-labelledby="notice-title">
+    <p class="briefing-label">Latest company notice</p>
+    <div class="briefing-copy">
+      <h2 id="notice-title">Expense claims close on the last working day</h2>
+      <p>Contact Finance if you need an extension.</p>
+      <p class="byline">Posted by Morgan Doyle · IT Services</p>
+    </div>
+  </section>
 </main>
 <%- include('partials/foot') %>

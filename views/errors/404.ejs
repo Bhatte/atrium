@@ -1,6 +1,12 @@
 <%- include('../partials/head', { title: 'Not found' }) %>
-<main>
-  <h1>Page not found</h1>
-  <p class="subtitle">That page does not exist. <a href="/dashboard">Back to Atrium</a>.</p>
+<main id="main-content" class="error-shell">
+  <a class="wordmark" href="/dashboard">Atrium<span>Internal</span></a>
+  <div class="error-copy">
+    <p class="error-code">404</p>
+    <p class="eyebrow">Page not found</p>
+    <h1>This record is not in Atrium.</h1>
+    <p>The address may be out of date, or the page may have moved.</p>
+    <a class="button button-primary" href="/dashboard">Back to Atrium</a>
+  </div>
 </main>
 <%- include('../partials/foot') %>

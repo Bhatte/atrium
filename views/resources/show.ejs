@@ -1,16 +1,20 @@
 <%- include('../partials/head', { title: resource.title }) %>
 <%- include('../partials/nav', { active: 'resources', currentUser: currentUser }) %>
-<main>
-  <p class="muted"><a href="/resources">← All documents</a></p>
-  <h1><%= resource.title %></h1>
-  <p class="subtitle"><%= resource.category %></p>
-
-  <div class="panel">
-    <p><%- resource.description %></p>
-    <dl class="detail">
-      <dt>Kept by</dt><dd><%= resource.owner_name %></dd>
-      <dt>Department</dt><dd><%= resource.category %></dd>
-    </dl>
-  </div>
+<main id="main-content" class="page-shell reading-shell">
+  <a class="back-link" href="/resources"><span aria-hidden="true">←</span> All documents</a>
+  <article class="document-page">
+    <header class="document-header">
+      <p class="eyebrow"><%= resource.category %> document</p>
+      <h1><%= resource.title %></h1>
+    </header>
+    <div class="document-layout">
+      <div class="document-body"><p><%- resource.description %></p></div>
+      <dl class="document-meta">
+        <div><dt>Kept by</dt><dd><%= resource.owner_name %></dd></div>
+        <div><dt>Department</dt><dd><%= resource.category %></dd></div>
+        <div><dt>Record ID</dt><dd><%= resource.id %></dd></div>
+      </dl>
+    </div>
+  </article>
 </main>
 <%- include('../partials/foot') %>

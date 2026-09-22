@@ -1,14 +1,17 @@
 <%- include('../partials/head', { title: 'Administration' }) %>
 <%- include('../partials/nav', { active: 'admin', currentUser: currentUser }) %>
-<main>
-  <h1>Staff accounts</h1>
-  <p class="subtitle">Accounts and access levels. Changes are handled by IT Services.</p>
+<main id="main-content" class="page-shell">
+  <section class="page-heading split-heading">
+    <div><p class="eyebrow">IT Services</p><h1>Staff accounts</h1></div>
+    <p class="hero-copy">A directory of account identifiers and access levels. Changes are handled by IT Services.</p>
+  </section>
 
-  <div class="panel" style="padding:0">
+  <div class="table-wrap admin-table">
     <table>
-      <thead><tr><th>ID</th><th>Name</th><th>Username</th><th>Department</th><th>Role</th></tr></thead>
+      <thead><tr><th scope="col">ID</th><th scope="col">Name</th><th scope="col">Username</th><th scope="col">Department</th><th scope="col">Role</th></tr></thead>
       <tbody id="admin-users"></tbody>
     </table>
+    <noscript><p class="empty-inline">JavaScript is required to load staff accounts.</p></noscript>
   </div>
 </main>
 <script src="/js/admin-users.js"></script>

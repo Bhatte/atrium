@@ -1,12 +1,22 @@
 <%- include('../partials/head', { title: 'Sign in' }) %>
-<div class="signin-page">
-  <h1>Atrium</h1>
-  <p class="subtitle">Internal staff workspace</p>
-  <div class="panel">
-    <% if (typeof error !== 'undefined' && error) { %>
-      <div class="message"><%= error %></div>
-    <% } %>
-    <form method="post" action="/login">
+<main id="main-content" class="signin-shell">
+  <section class="signin-story" aria-labelledby="signin-story-title">
+    <div class="wordmark wordmark-light">Atrium<span>Internal</span></div>
+    <div>
+      <p class="eyebrow eyebrow-light">Internal workspace</p>
+      <h1 id="signin-story-title">A clear place for everyday work.</h1>
+      <p class="signin-intro">People, resources and practical knowledge—kept together and kept current.</p>
+    </div>
+    <p class="signin-footnote">Atrium · Internal use only</p>
+  </section>
+  <section class="signin-form-wrap" aria-labelledby="signin-title">
+    <form class="signin-form" method="post" action="/login">
+      <p class="eyebrow">Welcome back</p>
+      <h2 id="signin-title">Sign in to Atrium</h2>
+      <p class="muted">Use your workplace account to continue.</p>
+      <% if (typeof error !== 'undefined' && error) { %>
+        <div class="message message-error" role="alert"><%= error %></div>
+      <% } %>
       <div class="field">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" autocomplete="username" autofocus>
@@ -15,9 +25,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" autocomplete="current-password">
       </div>
-      <button class="primary" type="submit">Sign in</button>
+      <button class="button button-primary button-wide" type="submit">Continue to Atrium</button>
     </form>
-  </div>
-</div>
+  </section>
+</main>
 </body>
 </html>

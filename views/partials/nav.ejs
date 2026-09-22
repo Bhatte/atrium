@@ -1,18 +1,19 @@
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/dashboard">Atrium</a>
-    <nav>
-      <a href="/dashboard"<%= active === 'dashboard' ? ' class="active"' : '' %>>Home</a>
-      <a href="/directory"<%= active === 'directory' ? ' class="active"' : '' %>>Directory</a>
-      <a href="/resources"<%= active === 'resources' ? ' class="active"' : '' %>>Documents</a>
-      <a href="/profile"<%= active === 'profile' ? ' class="active"' : '' %>>My profile</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="wordmark" href="/dashboard" aria-label="Atrium home">Atrium<span>Internal</span></a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a href="/dashboard"<% if (active === 'dashboard') { %> class="active" aria-current="page"<% } %>>Home</a>
+      <a href="/directory"<% if (active === 'directory') { %> class="active" aria-current="page"<% } %>>Directory</a>
+      <a href="/resources"<% if (active === 'resources') { %> class="active" aria-current="page"<% } %>>Documents</a>
+      <a href="/profile"<% if (active === 'profile') { %> class="active" aria-current="page"<% } %>>My profile</a>
       <% if (currentUser && currentUser.role === 'admin') { %>
-        <a href="/admin/users"<%= active === 'admin' ? ' class="active"' : '' %>>Administration</a>
+        <a href="/admin/users"<% if (active === 'admin') { %> class="active" aria-current="page"<% } %>>Administration</a>
       <% } %>
     </nav>
-    <div class="who">
-      <span><%= currentUser.display_name %></span>
-      <form method="post" action="/logout"><button type="submit">Sign out</button></form>
+    <div class="account-menu">
+      <span class="avatar" aria-hidden="true"><%= currentUser.display_name.split(' ').map(function (part) { return part.charAt(0); }).join('').slice(0, 2) %></span>
+      <span class="account-copy"><strong><%= currentUser.display_name %></strong><small><%= currentUser.department %></small></span>
+      <form method="post" action="/logout"><button class="text-button" type="submit">Sign out</button></form>
     </div>
   </div>
 </header>

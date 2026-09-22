@@ -1,38 +1,48 @@
 <%- include('../partials/head', { title: 'Directory' }) %>
 <%- include('../partials/nav', { active: 'directory', currentUser: currentUser }) %>
-<main>
-  <h1>Staff directory</h1>
-  <p class="subtitle">Everyone with an Atrium account.</p>
-
-  <form class="searchbar" method="get" action="/directory">
-    <input type="text" name="q" value="<%= q %>" placeholder="Search by name or department" aria-label="Search the directory">
-    <button class="primary" type="submit">Search</button>
-  </form>
+<main id="main-content" class="page-shell">
+  <section class="page-heading split-heading">
+    <div>
+      <p class="eyebrow">People and teams</p>
+      <h1>Staff directory</h1>
+      <p class="hero-copy"><%= colleagues.length %> <%= colleagues.length === 1 ? 'colleague' : 'colleagues' %> shown across Atrium.</p>
+    </div>
+    <form class="search-form" method="get" action="/directory">
+      <label for="directory-search">Search by name or department</label>
+      <div class="search-control">
+        <input type="text" id="directory-search" name="q" value="<%= q %>" placeholder="Name or department">
+        <button class="button button-primary" type="submit">Search</button>
+      </div>
+    </form>
+  </section>
 
   <% if (q) { %>
-    <p class="muted">Showing colleagues matching <%- q %>.</p>
+    <p class="result-summary">Showing colleagues matching <strong><%- q %></strong>.</p>
   <% } %>
 
-  <div class="panel" style="padding:0">
-    <% if (colleagues.length === 0) { %>
-      <p class="empty" style="padding:18px 20px">No one matched that search.</p>
-    <% } else { %>
+  <% if (colleagues.length === 0) { %>
+    <section class="empty-state">
+      <span class="empty-number">00</span>
+      <div><h2>No colleagues found</h2><p>Try a different name or department.</p></div>
+    </section>
+  <% } else { %>
+    <div class="directory-table table-wrap">
       <table>
-        <thead>
-          <tr><th>Name</th><th>Department</th><th>Email</th><th>Role</th></tr>
-        </thead>
+        <thead><tr><th scope="col">Name</th><th scope="col">Department</th><th scope="col">Email</th><th scope="col">Role</th></tr></thead>
         <tbody>
           <% colleagues.forEach(function (person) { %>
             <tr>
-              <td><a href="/directory?q=<%= encodeURIComponent(person.display_name) %>"><%= person.display_name %></a></td>
-              <td><%= person.department %></td>
-              <td><%= person.email %></td>
-              <td><span class="tag"><%= person.role %></span></td>
+              <td data-label="Name">
+                <div class="person-cell"><span class="avatar avatar-light" aria-hidden="true"><%= person.display_name.split(' ').map(function (part) { return part.charAt(0); }).join('').slice(0, 2) %></span><a href="/directory?q=<%= encodeURIComponent(person.display_name) %>"><%= person.display_name %></a></div>
+              </td>
+              <td data-label="Department"><%= person.department %></td>
+              <td data-label="Email"><a class="quiet-link" href="mailto:<%= person.email %>"><%= person.email %></a></td>
+              <td data-label="Role"><span class="tag"><%= person.role %></span></td>
             </tr>
           <% }) %>
         </tbody>
       </table>
-    <% } %>
-  </div>
+    </div>
+  <% } %>
 </main>
 <%- include('../partials/foot') %>
