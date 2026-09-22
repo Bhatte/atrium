@@ -73,9 +73,50 @@ something, to see whether you broke anything.
 
 ## If something goes wrong
 
-**`npm ci` fails.** Check your Node version is 24 or newer. If you are on a
-university or office network, it may be blocking the download. Try a different
-network.
+**`npm ci` fails with a certificate error.** The message may say
+`UNABLE_TO_GET_ISSUER_CERT_LOCALLY`, `SELF_SIGNED_CERT_IN_CHAIN`, or "unable to
+verify the first certificate". That means your network is inspecting secure
+connections, which office and university networks often do (Zscaler, Forcepoint
+and similar). Node keeps its own list of trusted certificates, so it does not
+see the network's certificate even though your machine is set up to trust it.
+
+Tell Node to use your own machine's certificate store as well, then run `npm ci`
+again in the same terminal window:
+
+```
+$env:NODE_USE_SYSTEM_CA = "1"      (Windows PowerShell)
+set NODE_USE_SYSTEM_CA=1           (Windows Command Prompt)
+export NODE_USE_SYSTEM_CA=1        (macOS and Linux)
+```
+
+```
+npm ci
+```
+
+To switch it on for every new terminal, run `setx NODE_USE_SYSTEM_CA 1` once on
+Windows and open a new window, or add `export NODE_USE_SYSTEM_CA=1` to your
+`~/.zshrc` on macOS (`~/.bash_profile` if you use bash).
+
+If that does not help, Node can be given the network's root certificate as a
+file instead. Ask IT for it in `.pem` form and run one of these, then `npm ci`:
+
+```
+$env:NODE_EXTRA_CA_CERTS = "C:\path\to\network-root.pem"    (Windows PowerShell)
+set NODE_EXTRA_CA_CERTS=C:\path\to\network-root.pem         (Windows Command Prompt)
+export NODE_EXTRA_CA_CERTS=/path/to/network-root.pem        (macOS and Linux)
+```
+
+Put quotation marks round the path if it contains spaces. Do not switch off
+`strict-ssl` — it is the check that protects you, and it is not what is broken.
+
+The quickest way round it is a network that does not inspect traffic: a home
+connection or a phone hotspot, then run `npm ci` there.
+
+**`npm ci` fails with `EPERM` and `rmdir`.** These are usually warnings while npm
+cleans up after the failure above. If they do stop `npm ci`, something else was
+holding the `node_modules` folder open — antivirus, a cloud-synced folder, or
+Atrium still running in another window. Close it, delete the `node_modules`
+folder, and run `npm ci` again.
 
 **Port 9090 is already in use.** Something else on your machine is using it.
 Close it, or start Atrium on a different port:

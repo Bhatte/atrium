@@ -1,0 +1,2 @@
+# Same line endings everywhere, so a Windows checkout matches a Linux or macOS one.
+* text=auto eol=lf
