@@ -50,6 +50,12 @@ Three accounts exist. They are not real people.
 | `bob.keane` | `CopperLane19` | staff |
 | `morgan.doyle` | `QuietHarbour08` | administrator |
 
+## Your own work
+
+Keep your lab notes and write-ups in a folder called `my-work` inside this
+folder. Copy each week's template from `labs/` into it and fill in the copy.
+Git ignores `my-work`, so `git pull` never changes or conflicts with your notes.
+
 ## Starting again
 
 If you change something and want to go back to the beginning:
