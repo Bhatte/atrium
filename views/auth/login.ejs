@@ -1,0 +1,23 @@
+<%- include('../partials/head', { title: 'Sign in' }) %>
+<div class="signin-page">
+  <h1>Atrium</h1>
+  <p class="subtitle">Internal staff workspace</p>
+  <div class="panel">
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="message"><%= error %></div>
+    <% } %>
+    <form method="post" action="/login">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" autofocus>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password">
+      </div>
+      <button class="primary" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

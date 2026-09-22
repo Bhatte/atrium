@@ -1,0 +1,17 @@
+<%- include('../partials/head', { title: 'Documents' }) %>
+<%- include('../partials/nav', { active: 'resources', currentUser: currentUser }) %>
+<main>
+  <h1>Shared documents</h1>
+  <p class="subtitle">Kept by each department. Ask the owner if something looks out of date.</p>
+
+  <div class="cards">
+    <% resources.forEach(function (item) { %>
+      <div class="card">
+        <div class="cat"><%= item.category %></div>
+        <h3><a href="/resources/<%= item.id %>"><%= item.title %></a></h3>
+        <p><%- item.description %></p>
+      </div>
+    <% }) %>
+  </div>
+</main>
+<%- include('../partials/foot') %>

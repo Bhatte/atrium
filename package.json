@@ -1,0 +1,29 @@
+{
+  "name": "atrium",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Atrium. Internal staff workspace, used in B9CY104.",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "reset": "node scripts/reset-lab.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.3",
+    "ejs": "6.0.1",
+    "express": "5.2.1",
+    "express-session": "1.19.0",
+    "helmet": "8.3.0"
+  },
+  "devDependencies": {
+    "supertest": "7.2.2"
+  },
+  "allowScripts": {
+    "better-sqlite3": false
+  }
+}

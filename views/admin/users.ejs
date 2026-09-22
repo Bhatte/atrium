@@ -1,0 +1,15 @@
+<%- include('../partials/head', { title: 'Administration' }) %>
+<%- include('../partials/nav', { active: 'admin', currentUser: currentUser }) %>
+<main>
+  <h1>Staff accounts</h1>
+  <p class="subtitle">Accounts and access levels. Changes are handled by IT Services.</p>
+
+  <div class="panel" style="padding:0">
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Username</th><th>Department</th><th>Role</th></tr></thead>
+      <tbody id="admin-users"></tbody>
+    </table>
+  </div>
+</main>
+<script src="/js/admin-users.js"></script>
+<%- include('../partials/foot') %>

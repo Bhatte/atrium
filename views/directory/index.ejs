@@ -1,0 +1,38 @@
+<%- include('../partials/head', { title: 'Directory' }) %>
+<%- include('../partials/nav', { active: 'directory', currentUser: currentUser }) %>
+<main>
+  <h1>Staff directory</h1>
+  <p class="subtitle">Everyone with an Atrium account.</p>
+
+  <form class="searchbar" method="get" action="/directory">
+    <input type="text" name="q" value="<%= q %>" placeholder="Search by name or department" aria-label="Search the directory">
+    <button class="primary" type="submit">Search</button>
+  </form>
+
+  <% if (q) { %>
+    <p class="muted">Showing colleagues matching <%- q %>.</p>
+  <% } %>
+
+  <div class="panel" style="padding:0">
+    <% if (colleagues.length === 0) { %>
+      <p class="empty" style="padding:18px 20px">No one matched that search.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Department</th><th>Email</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <% colleagues.forEach(function (person) { %>
+            <tr>
+              <td><a href="/directory?q=<%= encodeURIComponent(person.display_name) %>"><%= person.display_name %></a></td>
+              <td><%= person.department %></td>
+              <td><%= person.email %></td>
+              <td><span class="tag"><%= person.role %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+</main>
+<%- include('../partials/foot') %>

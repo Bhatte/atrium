@@ -1,0 +1,41 @@
+<%- include('../partials/head', { title: 'My profile' }) %>
+<%- include('../partials/nav', { active: 'profile', currentUser: currentUser }) %>
+<main>
+  <h1>My profile</h1>
+  <p class="subtitle">These details appear to colleagues in the staff directory.</p>
+
+  <% if (typeof saved !== 'undefined' && saved) { %>
+    <div class="message" style="background:#eef6ef;border-color:#bcd9c0;color:#31653a">Your profile has been saved.</div>
+  <% } %>
+
+  <div class="panel">
+    <dl class="detail">
+      <dt>Name</dt><dd id="profile-name"><%= currentUser.display_name %></dd>
+      <dt>Username</dt><dd><%= currentUser.username %></dd>
+      <dt>Department</dt><dd id="profile-department"><%= currentUser.department %></dd>
+      <dt>Email</dt><dd id="profile-email"><%= currentUser.email %></dd>
+    </dl>
+  </div>
+
+  <h2>Edit your details</h2>
+  <div class="panel">
+    <form method="post" action="/profile">
+      <input type="hidden" name="userId" value="<%= currentUser.id %>">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value="<%= currentUser.email %>">
+      </div>
+      <div class="field">
+        <label for="department">Department</label>
+        <input type="text" id="department" name="department" value="<%= currentUser.department %>">
+      </div>
+      <div class="field">
+        <label for="bio">Short biography</label>
+        <textarea id="bio" name="bio"><%= currentUser.bio %></textarea>
+      </div>
+      <button class="primary" type="submit">Save changes</button>
+    </form>
+  </div>
+</main>
+<script src="/js/profile.js"></script>
+<%- include('../partials/foot') %>

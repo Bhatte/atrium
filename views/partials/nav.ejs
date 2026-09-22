@@ -1,0 +1,18 @@
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/dashboard">Atrium</a>
+    <nav>
+      <a href="/dashboard"<%= active === 'dashboard' ? ' class="active"' : '' %>>Home</a>
+      <a href="/directory"<%= active === 'directory' ? ' class="active"' : '' %>>Directory</a>
+      <a href="/resources"<%= active === 'resources' ? ' class="active"' : '' %>>Documents</a>
+      <a href="/profile"<%= active === 'profile' ? ' class="active"' : '' %>>My profile</a>
+      <% if (currentUser && currentUser.role === 'admin') { %>
+        <a href="/admin/users"<%= active === 'admin' ? ' class="active"' : '' %>>Administration</a>
+      <% } %>
+    </nav>
+    <div class="who">
+      <span><%= currentUser.display_name %></span>
+      <form method="post" action="/logout"><button type="submit">Sign out</button></form>
+    </div>
+  </div>
+</header>

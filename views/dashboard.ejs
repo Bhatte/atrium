@@ -1,0 +1,28 @@
+<%- include('partials/head', { title: 'Home' }) %>
+<%- include('partials/nav', { active: 'dashboard', currentUser: currentUser }) %>
+<main>
+  <h1>Good to see you, <%= currentUser.display_name %></h1>
+  <p class="subtitle"><%= currentUser.department %> · <%= currentUser.email %></p>
+
+  <div class="cards">
+    <div class="card">
+      <h3><a href="/directory">Staff directory</a></h3>
+      <p class="muted">Find a colleague, their department and how to reach them.</p>
+    </div>
+    <div class="card">
+      <h3><a href="/resources">Shared documents</a></h3>
+      <p class="muted">Forms, registers and guides kept by each department.</p>
+    </div>
+    <div class="card">
+      <h3><a href="/profile">My profile</a></h3>
+      <p class="muted">Keep your own details and short biography up to date.</p>
+    </div>
+  </div>
+
+  <h2>Notices</h2>
+  <div class="panel">
+    <p>Expense claims for this month close on the last working day. Contact Finance if you need an extension.</p>
+    <p class="muted">Posted by Morgan Doyle, IT Services</p>
+  </div>
+</main>
+<%- include('partials/foot') %>
