@@ -21,6 +21,8 @@ prepareDatabase();
 
 const app = createApp({ dbPath });
 
-app.listen(PORT, () => {
+// Listen on this machine only. Atrium is deliberately weak, and on a shared
+// network such as campus Wi-Fi any other laptop could otherwise reach it.
+app.listen(PORT, "127.0.0.1", () => {
   console.log(`Atrium is running at http://localhost:${PORT}`);
 });
