@@ -11,7 +11,8 @@
     "start": "node src/server.js",
     "reset": "node scripts/reset-lab.mjs",
     "doctor": "node scripts/doctor.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "scan": "node scripts/scan.mjs"
   },
   "dependencies": {
     "better-sqlite3": "13.0.3",

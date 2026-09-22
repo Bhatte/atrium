@@ -1,0 +1,29 @@
+# The rules this module scans with.
+#
+# A scanner does not know anything on its own. It carries rules that somebody
+# wrote, and this is one of them. Read it. The rule below looks for a SQL
+# statement built by joining pieces of text together, which is a shape that is
+# often, but not always, a problem.
+#
+# Notice what the rule cannot tell: whether any of those pieces came from
+# outside the application. That is the part you have to establish yourself.
+
+rules:
+  - id: sql-built-by-joining-text
+    languages: [javascript]
+    severity: ERROR
+    message: >-
+      This SQL statement is built by joining pieces of text together. If any of
+      those pieces came from outside the application, the database will read it
+      as part of the command rather than as a value.
+    metadata:
+      category: security
+      confidence: MEDIUM
+      cwe: "CWE-89: SQL Injection"
+    patterns:
+      - pattern-either:
+          - pattern: $X = "$A" + ...
+          - pattern: $X = "$A" + ... + "$B"
+      - metavariable-regex:
+          metavariable: $A
+          regex: (?i).*(select|insert|update|delete|where|from)\s

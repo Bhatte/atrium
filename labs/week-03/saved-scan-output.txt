@@ -1,0 +1,39 @@
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                   
+    src/db/reset.js
+   ❯❯❱ scan-rules.sql-built-by-joining-text
+          ❰❰ Blocking ❱❱
+          This SQL statement is built by joining pieces of text together. If any of those pieces came from 
+          outside the application, the database will read it as part of the command rather than as a value.
+                                                                                                           
+           12┆ const INSERT_USER = "INSERT INTO users (id, username, display_name, email, department,
+               role, bio, password_hash) " +                                                         
+           13┆                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                             
+    src/handlers/directory.js
+   ❯❯❱ scan-rules.sql-built-by-joining-text
+          ❰❰ Blocking ❱❱
+          This SQL statement is built by joining pieces of text together. If any of those pieces came from 
+          outside the application, the database will read it as part of the command rather than as a value.
+                                                                                                           
+            8┆ const sql =
+            9┆   "SELECT id, display_name, email, department, role FROM users " +
+           10┆   "WHERE display_name LIKE '%" + q + "%' " +
+           11┆   "OR department LIKE '%" + q + "%'";
+                             
+    src/handlers/resources.js
+   ❯❯❱ scan-rules.sql-built-by-joining-text
+          ❰❰ Blocking ❱❱
+          This SQL statement is built by joining pieces of text together. If any of those pieces came from 
+          outside the application, the database will read it as part of the command rather than as a value.
+                                                                                                           
+            1┆ const RESOURCE_QUERY =
+            2┆   "SELECT resources.id, resources.title, resources.description, resources.category, " +
+            3┆   "users.display_name AS owner_name " +
+            4┆   "FROM resources JOIN users ON users.id = resources.owner_id " +
+            5┆   "WHERE resources.id = ?";
+
