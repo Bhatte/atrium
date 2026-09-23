@@ -3,7 +3,7 @@
 Your name:
 Date:
 
-Fill this in while you work. Keep the new session value, passwords and the whole
+Fill this in as you work. Keep the new session value, passwords and the whole
 cookie header out of this file. Record the cookie name and attributes only. If a
 check could not be run, say what prevented it.
 
@@ -13,7 +13,7 @@ check could not be run, say what prevented it.
 - Request method and path:
 - Response status and next page:
 - Cookie name, with value hidden:
-- HttpOnly present? 
+- HttpOnly present?
 - SameSite present? If so, what value?
 - Secure present?
 - Source file and line for the session value:

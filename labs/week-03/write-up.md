@@ -3,15 +3,15 @@
 Your name:
 Date:
 
-Fill this in as you go rather than at the end. Anywhere you are unsure, write that
-you are unsure and say why. That is worth more than a confident sentence you cannot
-support.
+Fill this in as you work, rather than at the end. Where you are unsure, write
+that you are unsure and say why. That is worth more than a confident sentence you
+cannot support.
 
 ---
 
 ## 1. The finding I chose
 
-Which of the three the tool reported.
+State which of the three the tool reported.
 
 - File:
 - Line:
@@ -19,7 +19,7 @@ Which of the three the tool reported.
 
 ## 2. What an assistant told me
 
-Which assistant you asked, and what it said in a sentence or two.
+Say which assistant you asked, and what it said in a sentence or two.
 
 - Assistant used:
 - Its explanation, in your own words:

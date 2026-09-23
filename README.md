@@ -97,5 +97,5 @@ terminal. It has to stay open while you use Atrium.
 **Something looks broken and you do not know why.** Run `npm run doctor`. It
 checks your setup and says what is wrong.
 
-Still stuck? Bring it to class. Setup problems are never the point of the
-exercise, and there is always another way to do the work.
+If you are still stuck, bring it to class. Setup problems are never the point of
+the exercise, and there is always another way to do the work.

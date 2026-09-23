@@ -33,7 +33,7 @@ For each entry, use **supported**, **ruled out**, or **needs review**. Keep over
 
 ## 3. First three matters to investigate
 
-Rank *matters*, combining entries only when they concern one underlying path. For each, record the relevant account, route or file, possible consequence, uncertainty and next check.
+Rank the matters. Combine entries only when they concern one underlying path. For each, record the relevant account, route or file, possible consequence, uncertainty and next check.
 
 1. **First:**
    - Queue ID or IDs:

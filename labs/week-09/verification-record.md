@@ -5,7 +5,7 @@ Date:
 Atrium copy used for the before result:
 Atrium copy used for the after result:
 
-Fill this in while you work. Keep passwords and session cookies out of the record. If a check cannot be run, name the missing evidence instead of writing that it passed.
+Fill this in as you work. Keep passwords and session cookies out of the record. If a check cannot be run, name the missing evidence instead of writing that it passed.
 
 ## 1. The claim I am checking
 

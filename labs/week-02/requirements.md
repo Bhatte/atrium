@@ -3,8 +3,8 @@
 Your name:
 Date:
 
-Fill this in as you go rather than at the end. Where you are unsure, write that
-you are unsure and say why. A sentence you can defend is worth more than a
+Fill this in as you work, rather than at the end. Where you are unsure, write
+that you are unsure and say why. A sentence you can support is worth more than a
 confident one you cannot.
 
 ---
@@ -22,7 +22,7 @@ honest answer.
 
 Four assets. For each one, say what it is and what it would cost if it were seen,
 changed or unavailable. Write the cost so that somebody outside the team could
-picture it.
+understand it.
 
 | Asset | What it costs if this goes wrong |
 |---|---|
@@ -66,4 +66,4 @@ cannot ask you anything.
 ## Optional, if you had time
 
 Your four requirements in order, most important first, with one sentence each on
-why it sits where it does.
+why it is in that position.

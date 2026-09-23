@@ -5,7 +5,7 @@ Date:
 Atrium address and port:
 ZAP run or class scan evidence:
 
-Fill this in while you work. If a step failed, say what you tried and what
+Fill this in as you work. If a step failed, say what you tried and what
 evidence you used instead. Do not paste a full session cookie value.
 
 ## 1. Coverage before sign-in

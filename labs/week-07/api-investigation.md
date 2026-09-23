@@ -17,7 +17,7 @@ or a password.
 - Was a session cookie present? (yes/no, value hidden):
 - First response status and content type:
 - Returned ID, username and field names:
-- In plain English, what did the request ask for?
+- What did the request ask for, in your own words?
 
 ## 2. Replayed and changed profile requests
 
