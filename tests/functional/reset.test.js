@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { freshApp, signIn, resultsTable, ALICE } from "../helpers/app.js";
+import { freshApp, signIn, resultsTable, ALICE, BOB, MORGAN } from "../helpers/app.js";
 import { resetDatabase } from "../../src/db/reset.js";
 
 // Every lab starts from the same data. If reset drifts, the teaching material
@@ -9,9 +9,11 @@ import { resetDatabase } from "../../src/db/reset.js";
 
 test("reset always produces the same three colleagues with the same IDs", async () => {
   const { app } = freshApp();
-  const agent = await signIn(app, ALICE.username, ALICE.password);
 
-  for (const [id, name] of [[17, "Alice Nolan"], [18, "Bob Keane"], [99, "Morgan Doyle"]]) {
+  // Each colleague reads their own profile, so this checks what reset produces
+  // and nothing about which profiles one colleague may read.
+  for (const [who, id, name] of [[ALICE, 17, "Alice Nolan"], [BOB, 18, "Bob Keane"], [MORGAN, 99, "Morgan Doyle"]]) {
+    const agent = await signIn(app, who.username, who.password);
     const res = await agent.get(`/api/profile/${id}`);
     assert.equal(res.status, 200, `profile ${id} should exist after a reset`);
     assert.equal(res.body.displayName, name);
