@@ -21,7 +21,9 @@ const probe = spawnSync("semgrep", ["--version"], { encoding: "utf8", shell: pro
 
 if (probe.error || probe.status !== 0) {
   console.log("Semgrep is not installed, or it is not on your PATH.\n");
-  console.log("To install it you need Python, then:\n");
+  console.log("To install it you need Python. Semgrep recommends pipx:\n");
+  console.log("    pipx install semgrep\n");
+  console.log("If you do not have pipx, this also works:\n");
   console.log("    pip install semgrep\n");
   console.log("Check it worked with:\n");
   console.log("    semgrep --version\n");

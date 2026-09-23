@@ -19,7 +19,7 @@ rules:
     metadata:
       category: security
       confidence: MEDIUM
-      cwe: "CWE-89: SQL Injection"
+      cwe: "CWE-89"
     patterns:
       - pattern-either:
           - pattern: $X = "$A" + ...
