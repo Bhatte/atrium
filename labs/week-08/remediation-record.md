@@ -62,3 +62,13 @@ Fill this in as you work. Keep exact inputs and observed results. If you have no
 - Cases or related paths still to check:
 - A focused automated test I would add:
 - Any known regression or remaining risk:
+
+## 8. Document description output
+
+- Resource changed for the temporary check:
+- List and detail page before the repair:
+- Rule for printing a description as page content:
+- Two view files and lines changed:
+- List and detail page after the repair:
+- Ordinary description checked after restoring the seed data:
+- What this check does not establish:
