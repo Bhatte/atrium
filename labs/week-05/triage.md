@@ -9,7 +9,7 @@ Fill this in as you work. If a check could not be completed, record what stopped
 
 ## 1. Scan coverage and sources
 
-- Static evidence: my `npm run scan` output or `labs/week-03/saved-scan-output.txt`:
+- Static evidence: my `npm run scan` output:
 - Runtime evidence: my ZAP run, Week 4 record, or direct browser checks:
 - Signed-in account used for protected routes:
 - Evidence that a protected route returned its page rather than `/login`:
