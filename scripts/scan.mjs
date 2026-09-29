@@ -27,8 +27,6 @@ if (probe.error || probe.status !== 0) {
   console.log("    pip install semgrep\n");
   console.log("Check it worked with:\n");
   console.log("    semgrep --version\n");
-  console.log("If you cannot get it running, use the saved scan output in the lab");
-  console.log("folder instead. You can complete every step of the exercise with it.");
   process.exit(1);
 }
 
