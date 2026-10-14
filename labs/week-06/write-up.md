@@ -58,8 +58,8 @@ excerpt. Say how it differs from the ordinary result.
 
 **Account and conditions tested:**
 
-**ZAP alert, risk and confidence:** State whether the report is yours or the
-class report.
+**ZAP alert, risk and confidence:** Give the ZAP version and when you ran the
+scan.
 
 **Ordinary request and result:** Give the URL, status, response excerpt and
 what the browser displayed.
@@ -87,17 +87,14 @@ One specific criticism:
 
 What I changed, or why I did not change it:
 
-## 5. My report draft
+## 5. CA1 set-up
 
-Finding reviewed:
-
-| Check | Present and where, or missing and next action |
+| Check | What I recorded |
 |---|---|
-| Plain title and exact location | |
-| Account, route and conditions | |
-| Normal and tested result | |
-| Code or HTTP artefact supporting each claim | |
-| Impact limited to the evidence | |
-| Repair that addresses the cause | |
+| Folder name (`procrastimate-` and my student number) | |
+| Port from `.env` (1 and the last four digits) | |
+| `npm run doctor` result | |
+| Signed in as `maya` at my port | |
+| Anything that failed, with the exact message | |
 
-The next action I will take:
+One question I still have about the CA1 brief:
