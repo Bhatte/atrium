@@ -44,6 +44,7 @@ be run, say which result is missing.
 - What I changed, in my own words:
 - Why this enforces my security property:
 - Did I restart Atrium after editing?
+- Commit ID, from `git log -1 --oneline`:
 
 ## 5. After evidence
 

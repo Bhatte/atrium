@@ -16,6 +16,7 @@ check could not be run, say what prevented it.
 - HttpOnly present?
 - SameSite present? If so, what value?
 - Secure present?
+- Does document.cookie show the session cookie? Yes or no, with no value:
 - Source file and line for the session value:
 - Source file and lines for cookie settings:
 - Source file and line where the settings reach Express:
@@ -23,8 +24,8 @@ check could not be run, say what prevented it.
 
 ## 2. Failed request and risks
 
-- Account and exact directory search text:
-- Request path and status:
+- Account and address requested:
+- Status and content type:
 - Short description of response body, with no full stack:
 - Error-handler file and line:
 
@@ -57,10 +58,10 @@ For each item, state a possible consequence. Say what you actually observed.
 - Which attributes I changed and why:
 - Which risk remains after the change:
 
-| Fresh POST /login response | Status | HttpOnly | SameSite | Secure | Did /dashboard load? |
-|---|---|---|---|---|---|
-| Before edit | | | | | |
-| After edit | | | | | |
+| Fresh POST /login response | Status | HttpOnly | SameSite | Secure | document.cookie shows it? | Did /dashboard load? |
+|---|---|---|---|---|---|---|
+| Before edit | | | | | | |
+| After edit | | | | | | |
 
 - Why my local HTTP setting differs from a public HTTPS deployment:
 
@@ -92,6 +93,6 @@ For each item, state a possible consequence. Say what you actually observed.
 ## Optional: error response
 
 - Change made, if any:
-- Result of malformed GET /directory?q=... after the change:
+- Result of the task two address after the change:
 - Result of ordinary GET /directory after the change:
 - Where diagnostic detail is kept and who may read it:
