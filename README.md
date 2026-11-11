@@ -95,6 +95,13 @@ npm run check:versions
 This runs the same searches against five different versions of the search
 code, to compare them. It does not change your own Atrium.
 
+Two more checks work the same way:
+
+| Command | What it checks |
+|---|---|
+| `npm run check:access` | Who may read and change each profile, and who may list every account. |
+| `npm run check:session` | Where the session key comes from, the session cookie's settings, and what a failed request shows. |
+
 ## If something goes wrong
 
 **`npm ci` fails.** Check your Node version is 24 or newer. If you are on a

@@ -7,7 +7,10 @@
 // Each line states the result a working directory should give, before the
 // search is tried. GREEN means the result matched. RED means it did not.
 
-import { freshApp, signIn, resultsTable, ALICE } from "../tests/helpers/app.js";
+import { printReport, supplySessionKey } from "./report.mjs";
+
+supplySessionKey();
+const { freshApp, signIn, resultsTable, ALICE } = await import("../tests/helpers/app.js");
 
 const COLLEAGUES = ["Alice Nolan", "Bob Keane", "Morgan Doyle"];
 
@@ -32,7 +35,7 @@ function whoWasFound(page) {
 const results = [];
 
 function record(check, expected, got, meaning) {
-  results.push({ check, expected, got, green: got === expected, meaning });
+  results.push({ check, expected, got, meaning });
 }
 
 // 1. The search still does its job.
@@ -54,17 +57,4 @@ record("Page summary for <u>W9</u>", "shown as text",
   summary.includes("&lt;u&gt;W9&lt;/u&gt;") ? "shown as text" : "acted on by the browser",
   "The page summary prints the search text without escaping it.");
 
-const colour = process.stdout.isTTY ? (code, text) => `\x1b[${code}m${text}\x1b[0m` : (code, text) => text;
-const pad = (text, width) => String(text).padEnd(width);
-
-console.log("\nAtrium directory check\n");
-console.log("  " + pad("Check", 28) + pad("Expected", 16) + pad("Got", 26) + "Result");
-for (const r of results) {
-  const verdict = r.green ? colour(32, "GREEN") : colour(31, "RED");
-  console.log("  " + pad(r.check, 28) + pad(r.expected, 16) + pad(r.got, 26) + verdict);
-}
-
-const red = results.filter((r) => !r.green);
-console.log(`\n${results.length - red.length} green, ${red.length} red.`);
-for (const r of red) console.log(`  RED: ${r.check}. ${r.meaning}`);
-console.log("");
+printReport("Atrium directory check", results, [28, 16, 26]);
