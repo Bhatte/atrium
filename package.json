@@ -12,6 +12,8 @@
     "reset": "node scripts/reset-lab.mjs",
     "doctor": "node scripts/doctor.mjs",
     "test": "node --test",
+    "check": "node checks/directory-check.mjs",
+    "check:versions": "node checks/search-versions.mjs",
     "scan": "node scripts/scan.mjs"
   },
   "dependencies": {
